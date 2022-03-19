@@ -15,7 +15,7 @@ export class LayoutComponent {
   fillerNav = [
     { route: '', title: 'Dashboard', icon: 'grid_view'},
     { route: 'process', title: 'Procesos', icon: 'account_tree'},
-    { route: 'risk', title: 'Risks', icon: 'local_fire_department'},
+    { route: 'risk', title: 'Riesgos', icon: 'local_fire_department'},
     { route: 'controls', title: 'Controles', icon: 'opacity'},
     { route: 'action-plans', title: 'Planes de accion', icon: 'assignment_turned_in_outlined'},
 
