@@ -1,0 +1,33 @@
+<div class="grid-container">
+    <mat-card>
+      <mat-card-header>
+          <mat-card-title>Dashboard</mat-card-title>
+          <mat-card-subtitle>All Tickets View</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list cols="3" rowHeigth="200">
+            <div class="dashboard-card mat-elevation-z2" fxFlex="33" >
+              <mat-card-title class="more">Procesos</mat-card-title>
+              <div class="dashboard-card-content"> <p  class="mat-display-4">
+                {{processes}}
+              </p> </div>
+            </div>
+            <div class="dashboard-card mat-elevation-z2" fxFlex="33">
+              <mat-card-title class="more">Riesgos</mat-card-title>
+              <div class="dashboard-card-content"> <p  class="mat-display-4">
+                {{risks}}
+              </p> </div>
+            </div>
+            <div class="dashboard-card mat-elevation-z2" fxFlex="33">
+                <mat-card-title class="more">Controles</mat-card-title>
+                <div class="dashboard-card-content"> <p  class="mat-display-4">
+                  {{controls}}
+                </p> </div>
+              </div>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  
+      
+  
+  </div>

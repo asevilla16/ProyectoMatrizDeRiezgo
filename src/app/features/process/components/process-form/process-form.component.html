@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="back-button" fxLayoutAlign="start start">
+        <button mat-icon-button color="secondary" routerLink="/process">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <mat-card class="card">
+        
+        <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title>Nuevo Proceso</mat-card-title>
+            <mat-card-subtitle>Informacion general de nuevo proceso</mat-card-subtitle>
+            <br />
+            <div class="example-button-container" fxLayoutAlign="end end">
+                <button type="button" mat-raised-button (click)="addProcess()" color="secondary">
+                    Save
+                </button>
+            </div>
+        </mat-card-header>
+        <form [formGroup]="form">
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex="49" appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between stretch" >
+                <mat-form-field fxFlex="32" appearance="outline">
+                    <mat-label>Tipo</mat-label>
+                    <mat-select formControlName="type">
+                        <mat-option [value]="i.description" *ngFor="let i of types">
+                            {{ i.description }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field fxFlex="32" appearance="outline">
+                    <mat-label>Categoria</mat-label>
+                    <mat-select formControlName="category" >
+                        <mat-option [value]="i.description" *ngFor="let i of categories">
+                            {{ i.description }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field fxFlex="32" appearance="outline" floatLabel="always">
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput formControlName="description" >
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="back-button" fxLayoutAlign="start start">
+        <button mat-icon-button color="secondary" routerLink="/controls">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <mat-card class="card">
+        <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title>Nuevo Control de contingencia</mat-card-title>
+            <mat-card-subtitle>Informacion general de nuevo control</mat-card-subtitle>
+            <br />
+            <div class="example-button-container" fxLayoutAlign="end end">
+                <button type="button" mat-raised-button (click)="addControl()" color="secondary">
+                    Save
+                </button>
+            </div>
+        </mat-card-header>
+        <br />
+        <form [formGroup]="form">
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex="100" appearance="outline" floatLabel="always">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name" />
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field fxFlex="100" appearance="outline" floatLabel="always">
+                    <mat-label>Descripcion</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+    
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex="100" appearance="outline" floatLabel="always">
+                    <mat-label>Responsable</mat-label>
+                    <input matInput formControlName="responsible">
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card>
+</div>

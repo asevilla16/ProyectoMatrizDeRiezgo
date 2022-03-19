@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="back-button" fxLayoutAlign="start start">
+        <button mat-icon-button color="secondary" routerLink="/risk">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <mat-card class="card">
+        <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title>{{ title }}</mat-card-title>
+            <mat-card-subtitle>Informacion general de nuevo riesgo</mat-card-subtitle>
+            <br />
+            <div class="example-button-container" fxLayoutAlign="end end">
+                <button type="button" mat-raised-button (click)="addRisk()" color="secondary">
+                    {{id ? "Update" : "Save"}}
+                </button>
+            </div>
+        </mat-card-header>
+        <br />
+        <form [formGroup]="form">
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex="100" appearance="outline" floatLabel="always">
+                    <mat-label>Nombre</mat-label>
+                    <mat-select formControlName="name">
+                        <mat-option [value]="name" *ngFor="let name of names">
+                            {{ name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout="row" fxLayoutAlign="space-between stretch" >
+                <mat-form-field fxFlex="32" appearance="outline" floatLabel="always">
+                    <mat-label>Probabilidad</mat-label>
+                    <mat-select formControlName="frequency">
+                        <mat-option [value]="p.value" *ngFor="let p of probabilities" (click)="calculateRiskCategory()">
+                            {{ p.description }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field fxFlex="32" appearance="outline" floatLabel="always">
+                    <mat-label>Impacto</mat-label>
+                    <mat-select formControlName="impact" >
+                        <mat-option [value]="i.value" *ngFor="let i of impacts" (click)="calculateRiskCategory()">
+                            {{ i.description }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field fxFlex="32" appearance="outline" floatLabel="always" floatLabel="always">
+                    <mat-label>Nivel del riesgo</mat-label>
+                    <input matInput formControlName="riskLevel" >
+                </mat-form-field>
+            </div>
+    
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field fxFlex="100" appearance="outline" floatLabel="always">
+                    <mat-label>Descripcion</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+    
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex="100" appearance="outline" floatLabel="always">
+                    <mat-label>Creador del riesgo</mat-label>
+                    <input matInput formControlName="riskOwner">
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card>
+</div>
